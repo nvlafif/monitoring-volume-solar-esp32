@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>History Pengukuran</title>
+</head>
+<body class="body-history">
+    <button class="button" onclick="goHome()">Home</button>
+    <h1>Riwayat Pengukuran Solar</h1>
+    <div class="status" id="tanggal"></div>
+    <table id="logTable" class="data-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Tanggal & Waktu</th>
+                <th>Volume (L)</th>
+            </tr>
+        </thead>
+        <tbody id="histbody">
+        </tbody>
+    </table>
+    <!-- <button class="button" onclick="addRow()">Tambah Data</button> -->
+    <script src="history.js"></script>
+
+</body>
+
+</html>
+

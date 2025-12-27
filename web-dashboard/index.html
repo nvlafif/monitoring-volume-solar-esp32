@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Volume Solar</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><img loading="lazy" src="image/logo.png" alt=""></div>
+        <div class="prodi">
+            Muhammad Naufal Afif
+        </div>
+        <div class="prodi">
+            Teknologi Rekayasa Komputer <br>
+            Rekayasa Pertanian dan Komputer <br>
+            Politeknik Pertanian Negeri Payakumbuh
+        </div>
+        <div class="logo"><img loading="lazy" src="image/logo.png" alt=""></div>
+    </header>
+
+
+    <main class="main">
+        <div class="judul">Monitoring Volume Solar</div>
+        <div class="status" id="tanggal"></div>
+
+        <div class="dimensi">
+            <h2>Input Dimensi Tanki</h2>
+            <form id="dimensiTanki" onsubmit="kirimDimensi(); return false;">
+                <!-- <label class="IPtext" for="ip">Panjang :</label> -->
+                <input class="inputIP" type="number" id="inputP" name="ip" placeholder="Panjang (00.00 cm)" required>
+
+                <!-- <label class="IPtext" for="subnet">Lebar :</label> -->
+                <input class="inputIP" type="number" id="inputL" name="subnet" placeholder="Lebar (00.00 cm)" required>
+
+                <!-- <label class="IPtext" for="gateway">Tinggi :</label> -->
+                <input class="inputIP" type="number" id="inputT" name="gateway" placeholder="Tinggi (00.00 cm)" required>
+
+                <button class="button" id="btnApply" type="submit">Apply</button>
+            </form>
+            <div class="get">
+                <h3>Dimensi Tanki</h3>
+                <div id="showP"></div>
+                <div id="showL"></div>
+                <div id="showT"></div>
+            </div>
+        </div>
+
+        <h2 class="dataSolar">Data Volume Solar</h2>
+        <div class="data">
+            <div id="jarak" class="jarak"></div>
+            <div class="data-data">
+                <div class="border-data">Volume
+                    <div id="volume"></div>
+                </div>
+                <div class="border-data">Persentase
+                    <div id="percent"></div>
+                </div>
+                <div class="border-data">Tinggi Solar
+                    <div id="tinggi"></div>
+                </div>
+            </div>
+            <button class="button" onclick="goHistory()">History</button>
+        </div>
+
+        <div class="status" id="status"></div>
+        <div class="ip">
+            <h2>Input Konfigurasi IP</h2>
+            <div>
+                <div class="ip-box">
+                    <label>IP Address:</label>
+                    <div class="ip-row">
+                        <input id="ip1" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="ip2" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="ip3" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="ip4" type="number" min="0" max="255" placeholder="---">
+                    </div>
+                </div>
+
+                <div class="ip-box">
+                    <label>Gateway:</label>
+                    <div class="ip-row">
+                        <input id="gw1" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="gw2" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="gw3" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="gw4" type="number" min="0" max="255" placeholder="---">
+                    </div>
+                </div>
+
+                <div class="ip-box">
+                    <label>Subnet Mask:</label>
+                    <div class="ip-row">
+                        <input id="sn1" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="sn2" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="sn3" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="sn4" type="number" min="0" max="255" placeholder="---">
+                    </div>
+                </div>
+
+                <div class="ip-box">
+                    <label>Primary DNS:</label>
+                    <div class="ip-row">
+                        <input id="stdns1" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="stdns2" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="stdns3" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="stdns4" type="number" min="0" max="255" placeholder="---">
+                    </div>
+                </div>
+
+                <div class="ip-box">
+                    <label>Secondary DNS:</label>
+                    <div class="ip-row">
+                        <input id="nddns1" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="nddns2" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="nddns3" type="number" min="0" max="255" placeholder="---">
+                        <span>.</span>
+                        <input id="nddns4" type="number" min="0" max="255" placeholder="---">
+                    </div>
+                </div>
+
+                <button class="button" onclick="applyIPConfig()">Apply</button>
+            </div>
+            
+            <div class="get">
+                <h3>IP Perangkat Sekarang</h3>
+                <div id="showIp"></div>
+                <div id="showGw"></div>
+                <div id="showSubnet"></div>
+                <div id="showStDns"></div>
+                <div id="showNdDns"></div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+        Proyek Magang Mahasiswa <br>
+        Teknologi Rekayasa Komputer | PPNP | 2025
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
